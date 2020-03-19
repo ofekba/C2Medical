@@ -12,15 +12,15 @@
                     <div class="card-body">
                         <form>
                             <div class="row">
-                                <label>Choose accident event type:</label>
-                                <div class="col-md-5">  
-                                    <select id="event_type" name="event_type">
-                                      <option value="man_injury">Man Injury</option>
-                                      <option value="accident">Accident</option>
-                                      <option value="terror_attack">Terror Attack</option>
-                                      <option value="other">Other</option>
-                                    </select>
-                                </div>
+                                <mat-form-field class="col-md-6">
+                                  <mat-label>Choose accident event type:</mat-label>
+                                  <mat-select [(value)]="selected">
+                                    <mat-option>Other</mat-option>
+                                    <mat-option value="option1">Man Injury</mat-option>
+                                    <mat-option value="option2">Accident</mat-option>
+                                    <mat-option value="option3">Terror Attack</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
                             </div>
                             <div class="row">
                                 <label>Location</label>
@@ -51,7 +51,7 @@
                                 </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                  <mat-form-field class="example-full-width">
+                                   <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Date" type="date">
                                   </mat-form-field>
                                 </div>
@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label>Event Summery</label>
+                                <label>Event Sammery</label>
                                 <div class="col-md-12">
                                 <mat-form-field class="example-full-width">
                                    <textarea matInput></textarea>
