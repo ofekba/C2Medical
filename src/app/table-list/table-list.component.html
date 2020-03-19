@@ -38,6 +38,9 @@
                                   <th>
                                     Summary
                                   </th>
+                                  <th>
+                                    Handle Event
+                                  </th>
                               </thead>
                               <tbody>
                                   <tr *ngFor="let item of ItemsArray">
@@ -68,7 +71,9 @@
                                       <td>
                                         {{ item.eventSumVal }}
                                       </td>
-                                      <td><button (click)="handleEvent(item.id)">Handle Event</button></td>
+                                      <td>
+                                        <button mat-raised-button type="submit" class=".btn-sm btn-danger pull-right" (click)="handleEvent(item.id)">Handle Event</button>
+                                      </td>
                                   </tr>
                               </tbody>
                           </table>
