@@ -38,4 +38,12 @@ export class TableListComponent implements OnInit {
     );
   }
 
+<<<<<<< HEAD
 }
+=======
+  handleEvent(id){
+    console.log("lallaala", id);
+  }
+
+}
+>>>>>>> 59ab6fec5a64a7f5f0c5230af918f4057b9b2b72
