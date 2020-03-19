@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-icons',
@@ -24,7 +23,6 @@ export class IconsComponent implements OnInit {
   areaVal: string = '';
   brigadeVal: string = '';
   selected_event_type: string = '';
-  // private http:HttpClientModule;
 
   constructor(private http: HttpClient) {
 
