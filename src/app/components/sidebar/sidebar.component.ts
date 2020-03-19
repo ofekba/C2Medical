@@ -14,7 +14,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-];
+    { path: '/icons', title: 'Add new event',  icon:'content_paste', class: '' },
+  ];
 
 @Component({
   selector: 'app-sidebar',
