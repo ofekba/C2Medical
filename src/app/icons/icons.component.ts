@@ -1,27 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
   styleUrls: ['./icons.component.css']
 })
+
+
 export class IconsComponent implements OnInit {
   name: string = '';
-  civils_num: Number=-1;
-  eventSum_val: string = '';
-  soldiers_num: Number=-1;
-  part_num: Number=-1;
-  osn_val: string = '';
-  hour_val: string = '';
-  date_val: string = '';
-  description_val: string = '';
-  landmark_val: string = '';
-battalion_val: string = '';
-area_val: string = '';
-brigade_val: string = '';
-selected_event_type: string = '';
+  civilsNum: Number=-1;
+  eventSumVal: string = '';
+  soldiersNum: Number=-1;
+  partNum: Number=-1;
+  osnVal: string = '';
+  hourVal: string = '';
+  dateVal: string = '';
+  descriptionVal: string = '';
+  landmarkVal: string = '';
+  battalionVal: string = '';
+  areaVal: string = '';
+  brigadeVal: string = '';
+  selected_event_type: string = '';
+  // private http:HttpClientModule;
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
   }
 
@@ -32,20 +37,35 @@ selected_event_type: string = '';
  
 
   subAddForm(){
-  //   civils_num
-  //   eventSum_val
-  //   soldiers_num
-  //   part_num
-  //   osn_val
-  //   hour_val
-  //   date_val
-  //   description_val
-  //   landmark_val
-  // battalion_val
-  // area_val
-  // brigade_val
-  // selected_event_type
-    console.log(this.civils_num, this.eventSum_val, this.soldiers_num, this.part_num, this.osn_val, this.hour_val, this.date_val, this.description_val, this.landmark_val, this.battalion_val, this.area_val, this.brigade_val, this.selected_event_type);
 
+   let event_manage= '{ "civilsNum":"'+this.civilsNum+
+                  '", "eventSumVal":"'+this.eventSumVal+
+                  '", "soldiersNum":"'+this.soldiersNum+
+                  '", "partNum":"'+this.partNum+
+                  '", "osnVal":"'+this.osnVal+
+                  '", "hourVal":"'+this.hourVal+
+                  '", "dateVal":"'+this.dateVal+
+                  '", "descriptionVal":"'+this.descriptionVal+
+                  '", "landmarkVal":"'+this.landmarkVal+
+                  '", "battalionVal":"'+this.battalionVal+
+                  '", "areaVal":"'+this.areaVal+
+                  '", "brigadeVal":"'+this.brigadeVal+
+                  '", "selected_event_type":"'+this.selected_event_type+'"}';
+    let event_manage_json = JSON.parse(event_manage);
+    console.log(event_manage_json);
+
+    this.http.post(" http://localhost:3000/events", event_manage_json).subscribe(
+      val => {
+          console.log("ADD NEW EVENT: POST call successful value returned in body", 
+                      val);
+      },
+      response => {
+          console.log("ADD NEW EVENT: POST call in error", response);
+      },
+      () => {
+          console.log("ADD NEW EVENT:The POST observable is now completed.");
+
+      }
+    );
   }
 }
