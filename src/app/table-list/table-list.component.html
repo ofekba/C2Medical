@@ -40,33 +40,33 @@
                                   </th>
                               </thead>
                               <tbody>
-                                  <tr>
+                                  <tr *ngFor="let item of ItemsArray">
                                       <td>
-                                        Something
+                                        {{ item.selected_event_type }}
                                       </td>
                                       <td>
-                                        Something
+                                        {{ item.brigadeVal }}
                                       </td>
                                       <td>
-                                        Something
+                                        {{ item.areaVal }}
                                       </td>
                                       <td>
-                                        Something
+                                        {{ item.battalionVal }}
                                       </td>
                                       <td>
-                                        Something
+                                        {{ item.landmark }}
                                       </td>
                                       <td>
-                                        Something
+                                        {{ item.description }}
                                       </td>
                                       <td>
-                                        Something
+                                        {{ item.osnVal }}
                                       </td>
                                       <td>
-                                        Something
+                                        {{ item.partNum }}
                                       </td>
                                       <td>
-                                        Something
+                                        {{ item.eventSumVal }}
                                       </td>
                                   </tr>
                               </tbody>
