@@ -13,12 +13,12 @@
                         <form>
                             <div class="row">
                                 <mat-form-field class="col-md-6">
-                                  <mat-label>Choose accident event type:</mat-label>
-                                  <mat-select [(value)]="selected">
-                                    <mat-option>Other</mat-option>
-                                    <mat-option value="option1">Man Injury</mat-option>
-                                    <mat-option value="option2">Accident</mat-option>
-                                    <mat-option value="option3">Terror Attack</mat-option>
+                                  <mat-label>Choose event type:</mat-label>
+                                  <mat-select [(value)]="selected_event_type">
+                                    <mat-option value="Other">Other</mat-option>
+                                    <mat-option value="Man Injury">Man Injury</mat-option>
+                                    <mat-option value="Accident">Accident</mat-option>
+                                    <mat-option value="Terror Attack">Terror Attack</mat-option>
                                   </mat-select>
                                 </mat-form-field>
                             </div>
@@ -26,45 +26,45 @@
                                 <label>Location</label>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Brigade">
+                                        <input matInput placeholder="Brigade" [(ngModel)]="brigade_val" name="brigade_val">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Area">
+                                        <input matInput placeholder="Area" [(ngModel)]="area_val" name="area_val">
                                     </mat-form-field></div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Battalion">
+                                        <input matInput placeholder="Battalion" [(ngModel)]="battalion_val" name="battalion_val">
                                     </mat-form-field></div>
                                 <div class="col-md-2">
                                     <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Landmark">
+                                        <input matInput placeholder="Landmark" [(ngModel)]="landmark_val" name="landmark_val">
                                     </mat-form-field></div>
                             </div>
                                 <div class="row">
                                     <label>Description</label>
                                     <div class="col-md-12">
                                     <mat-form-field class="example-full-width">
-                                       <textarea matInput></textarea>
+                                       <textarea matInput [(ngModel)]="description_val" name="description_val"></textarea>
                                      </mat-form-field></div>
                                 </div>
                             <div class="row">
                                 <div class="col-md-6">
                                    <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Date" type="date">
+                                    <input matInput placeholder="Date" type="date" [(ngModel)]="date_val" name="date_val">
                                   </mat-form-field>
                                 </div>
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Hour" type="time">
+                                    <input matInput placeholder="Hour" type="time" [(ngModel)]="hour_val" name="hour_val">
                                   </mat-form-field>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Operations Surgunt Name" type="text">
+                                    <input matInput placeholder="Operations Surgunt Name" type="text" [(ngModel)]="osn_val" name="osn_val">
                                   </mat-form-field>
                                 </div>
                             </div>
@@ -72,17 +72,17 @@
                                 <label>Number of...</label>
                                 <div class="col-md-3">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Participants" type="number">
+                                    <input matInput placeholder="Participants" type="number" [(ngModel)]="part_num" name="part_num">
                                   </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Soldiers" type="number">
+                                    <input matInput placeholder="Soldiers" type="number" [(ngModel)]="soldiers_num" name="soldiers_num">
                                   </mat-form-field>
                                 </div>
                                 <div class="col-md-3">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Civilians" type="number">
+                                    <input matInput placeholder="Civilians" type="number" [(ngModel)]="civils_num" name="civils_num">
                                   </mat-form-field>
                                 </div>
                             </div>
@@ -90,10 +90,13 @@
                                 <label>Event Sammery</label>
                                 <div class="col-md-12">
                                 <mat-form-field class="example-full-width">
-                                   <textarea matInput></textarea>
+                                   <textarea matInput [(ngModel)]="eventSum_val" name="eventSum_val"></textarea>
                                  </mat-form-field></div>
                             </div>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Submit</button>
+                            
+
+                            <!-- <p>Value: {{ civils_num }}</p> -->
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="subAddForm()">Submit</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
