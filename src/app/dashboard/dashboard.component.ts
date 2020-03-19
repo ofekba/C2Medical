@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import * as Chartist from 'chartist';
 
 @Component({
@@ -8,7 +10,6 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -65,7 +66,43 @@ export class DashboardComponent implements OnInit {
 
       seq2 = 0;
   };
+
+  constructor(private http: HttpClient) { }
+
+  isOverFalseLength: number;
+  isOverTrueLength: number;
   ngOnInit() {
+    this.http.get(" http://localhost:3000/find/events?isOver=false").subscribe(
+      val => {
+          console.log("EVENT TABLE: GET call successful value returned in body", 
+                      val);
+                      this.isOverFalseLength = Object.keys(val).length;
+      },
+      response => {
+          console.log("EVENT TABLE: GET call in error", response);
+      },
+      () => {
+          console.log("EVENT TABLE:The GET observable is now completed.");
+      }
+    );
+
+    this.http.get(" http://localhost:3000/find/events?isOver=true").subscribe(
+      val => {
+          console.log("EVENT TABLE: GET call successful value returned in body", 
+                      val);
+                      this.isOverTrueLength = Object.keys(val).length;
+      },
+      response => {
+          console.log("EVENT TABLE: GET call in error", response);
+      },
+      () => {
+          console.log("EVENT TABLE:The GET observable is now completed.");
+      }
+    );
+
+
+
+
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
