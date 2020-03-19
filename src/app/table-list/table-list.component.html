@@ -1,6 +1,89 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row">
+    <div class="row" id="handel_event_div">
+      <div class="col-md-8">
+          <div class="card">
+              <div class="card-header card-header-danger">
+                <h4 class="card-title">Update event status</h4>
+                <p class="card-category">Complete the form</p>
+              </div>
+              <div class="card-body">
+                  <form>
+                      <div class="row">
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Caregiver crew" [(ngModel)]="Caregiver_crew_val" name="Caregiver_crew_val">
+                              </mat-form-field>
+                          </div>
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Evacuation crew" [(ngModel)]="Evacuation_crew_val" name="Evacuation_crew_val">
+                              </mat-form-field></div>
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Evacuation target" [(ngModel)]="Evacuation_target_val" name="Evacuation_target_val">
+                              </mat-form-field></div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Injury state" [(ngModel)]="Injury_state_val" name="Injury_state_val">
+                              </mat-form-field>
+                          </div>
+                          <mat-form-field class="col-md-3">
+                              <mat-label>Urgent</mat-label>
+                              <mat-select [(value)]="Urgent_val">
+                                <mat-option value="False">No</mat-option>
+                                <mat-option value="true">Yes</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="col-md-3">
+                              <mat-label>Riding</mat-label>
+                              <mat-select [(value)]="riding_val">
+                                <mat-option value="False">No</mat-option>
+                                <mat-option value="True">Yes</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                      </div>
+                      <div class="row">
+                          <mat-form-field class="col-md-3">
+                              <mat-label>Definition</mat-label>
+                              <mat-select [(value)]="def_val">
+                                <mat-option value="Trauma">Trauma</mat-option>
+                                <mat-option value="Disease">Disease</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="col-md-3">
+                              <mat-label>Category</mat-label>
+                              <mat-select [(value)]="routine_val">
+                                <mat-option value="Routine">Routine</mat-option>
+                                <mat-option value="operational">operational</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="col-md-3">
+                              <mat-label>Event outline</mat-label>
+                              <mat-select [(value)]="Event_outline_val">
+                                <mat-option>Car Accident</mat-option>
+                                <mat-option value="Disease">Disease</mat-option>
+                                <mat-option value="Hostile terrorist activity">Hostile terrorist activity</mat-option>
+                                <mat-option value="Sabotage">Sabotage</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                      </div>
+                      <div class="row">
+                          <mat-form-field class="col-md-10">
+                              <input matInput placeholder="Injury mechanism" [(ngModel)]="Injury_mechanism_val" name="Injury_mechanism_val">
+                          </mat-form-field>
+                      </div>
+                         
+                  </form>
+                  <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="subUpdateForm()">Submit</button>
+                  <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="clickCancel()">Cancel</button>
+              </div>
+          </div>
+      </div>
+  </div>
+      <div class="row" id="events_table_div">
           <div class="col-md-12">
               <div class="card">
                   <div class="card-header card-header-danger">
