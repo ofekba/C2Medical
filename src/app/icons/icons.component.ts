@@ -48,7 +48,7 @@ export class IconsComponent implements OnInit {
                   '", "battalionVal":"'+this.battalionVal+
                   '", "areaVal":"'+this.areaVal+
                   '", "brigadeVal":"'+this.brigadeVal+
-                  '", "selected_event_type":"'+this.selected_event_type+'"}';
+                  '", "selectedEventType":"'+this.selected_event_type+'"}';
     let event_manage_json = JSON.parse(event_manage);
     console.log(event_manage_json);
 
