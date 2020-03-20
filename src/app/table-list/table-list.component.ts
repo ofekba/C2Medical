@@ -51,8 +51,8 @@ export class TableListComponent implements OnInit {
     );
   }
 
-  handleEvent(id){
-    console.log("lallaala", id);
+  handleEvent(id:number){
+    console.log("you want to handleEvent:", id);
     this.event_id=id;
     document.getElementById('handle_event_div').hidden = false;
     document.getElementById('events_table_div').hidden = true;
@@ -87,14 +87,13 @@ export class TableListComponent implements OnInit {
         val => {
             console.log("ADD NEW EVENT: POST call successful value returned in body", 
                         val);
-            this.clickCancel();
-            this.ngOnInit();
+            this.clickCancel()
         },
         response => {
-            console.log("ADD NEW EVENT: POST call in error", response);
+            console.log("HANDLE EVENT: POST call in error", response);
         },
         () => {
-            console.log("ADD NEW EVENT:The POST observable is now completed.");
+            console.log("HANDLE EVENT:The POST observable is now completed.");
 
         }
       );

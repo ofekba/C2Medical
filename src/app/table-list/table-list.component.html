@@ -77,8 +77,8 @@
                       </div>
                          
                   </form>
-                  <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="subUpdateForm()">Submit</button>
-                  <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="clickCancel()">Cancel</button>
+                  <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="subUpdateForm()" [routerLink]="['../upgrade']">Submit</button>
+                  <button mat-raised-button type="cancel" class="btn btn-danger pull-right" (click)="clickCancel()">Cancel</button>
               </div>
           </div>
       </div>
