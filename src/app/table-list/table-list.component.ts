@@ -69,7 +69,7 @@ export class TableListComponent implements OnInit {
 
   subUpdateForm(){
   
-    console.log(this.Caregiver_crew_val, this.Evacuation_crew_val, this.Evacuation_target_val, this.Injury_state_val, this.Urgent_val, this.riding_val, this.def_val, this.routine_val, this.Event_outline_val, this.Injury_mechanism_val);
+    // console.log(this.Caregiver_crew_val, this.Evacuation_crew_val, this.Evacuation_target_val, this.Injury_state_val, this.Urgent_val, this.riding_val, this.def_val, this.routine_val, this.Event_outline_val, this.Injury_mechanism_val);
     let event_handler= '{ "caregiverCrewVal":"'+this.Caregiver_crew_val+
                     '", "evacuationCrewVal":"'+this.Evacuation_crew_val+
                     '", "evacuationTargetVal":"'+this.Evacuation_target_val+
@@ -82,19 +82,21 @@ export class TableListComponent implements OnInit {
                     '", "injuryMechanismVal":"'+this.Injury_mechanism_val+'"}';
 
       let event_manage_json = JSON.parse(event_handler);
-      console.log(event_manage_json);
+      // console.log(event_manage_json);
 
       this.http.post("http://localhost:3000/eventHandler/"+this.event_id, event_manage_json).subscribe(
         val => {
             console.log("ADD NEW EVENT: POST call successful value returned in body", 
                         val);
-            this.clickCancel()
+            
         },
         response => {
             console.log("HANDLE EVENT: POST call in error", response);
         },
         () => {
             console.log("HANDLE EVENT:The POST observable is now completed.");
+            this.clickCancel();
+            this.ngOnInit();
 
         }
       );

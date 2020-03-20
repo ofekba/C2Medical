@@ -30,8 +30,6 @@ export class UpgradeComponent implements OnInit {
   }
 
  ngOnInit() {
-  this.EventDetails(35);
-  // document.getElementById('event_det').hidden = true;
    this.http.get("http://localhost:3000/find/events?isOver=true").subscribe(
      val => {
          console.log("EVENT TABLE: GET call successful value returned in body", 
@@ -64,13 +62,17 @@ export class UpgradeComponent implements OnInit {
     },
     () => {
         console.log("EVENT TABLE:The GET observable is now completed.");
-        // document.getElementById('event_det').hidden = false;
 
     }
   );
-
-
- }
-
  
+}
+
+show_event_det(){
+  if(this.event_details){ //condition for showing the div
+    return true;
+  }
+  else
+    return false;
+}
 }
