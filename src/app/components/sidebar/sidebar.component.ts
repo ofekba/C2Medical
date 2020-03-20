@@ -11,12 +11,12 @@ declare interface RouteInfo {
 // add new pages to side nav
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
-    { path: '/table-list', title: 'Events Table',  icon:'content_paste', class: '' },
+    { path: '/table-list', title: 'Pending Events Table',  icon:'update', class: '' },
+    { path: '/upgrade', title: 'Handled Events Table',  icon:'content_paste', class: '' },
     { path: '/icons', title: 'Add New Event',  icon:'note_add', class: '' },
-    { path: '/upgrade', title: 'Update Event Status',  icon:'update', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
+    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
+    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+    // { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
   ];
 
 @Component({

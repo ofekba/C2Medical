@@ -29,15 +29,16 @@ export class TableListComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log("IN ngOnInit");
     document.getElementById('handle_event_div').hidden = true;
-    this.http.get(" http://localhost:3000/events?isOver=false").subscribe(
+    this.http.get("http://localhost:3000/find/events?isOver=false").subscribe(
       val => {
           console.log("EVENT TABLE: GET call successful value returned in body", 
                       val, Object.keys(val).length);
                       for (let i = 0; i < Object.keys(val).length; i++) 
                         this.ItemsArray[i]=val[i];
                       console.log(this.ItemsArray);
-          document.getElementById('events_table_div').hidden = false;
+          
           
       },
       response => {
@@ -61,25 +62,23 @@ export class TableListComponent implements OnInit {
   clickCancel(){
     document.getElementById('handle_event_div').hidden = true;
     document.getElementById('events_table_div').hidden = false;
-
+    console.log("IN clickCancel");
 
   }
 
   subUpdateForm(){
   
     console.log(this.Caregiver_crew_val, this.Evacuation_crew_val, this.Evacuation_target_val, this.Injury_state_val, this.Urgent_val, this.riding_val, this.def_val, this.routine_val, this.Event_outline_val, this.Injury_mechanism_val);
-    let event_handler= '{ "CaregiverCrewVal":"'+this.Caregiver_crew_val+
-                    '", "EvacuationCrewVal":"'+this.Evacuation_crew_val+
-                    '", "EvacuationTargetVal":"'+this.Evacuation_target_val+
-                    '", "InjuryStateVal":"'+this.Injury_state_val+
-                    '", "UrgentVal":"'+this.Urgent_val+
+    let event_handler= '{ "caregiverCrewVal":"'+this.Caregiver_crew_val+
+                    '", "evacuationCrewVal":"'+this.Evacuation_crew_val+
+                    '", "evacuationTargetVal":"'+this.Evacuation_target_val+
+                    '", "injuryStateVal":"'+this.Injury_state_val+
+                    '", "urgentVal":"'+this.Urgent_val+
                     '", "ridingVal":"'+this.riding_val+
                     '", "defVal":"'+this.def_val+
                     '", "routineVal":"'+this.routine_val+
-                    '", "EventOutlineVal":"'+this.Event_outline_val+
-                    '", "id":"'+this.event_id+
-                    '", "isOver":"'+"true"+
-                    '", "InjuryMechanismVal":"'+this.Injury_mechanism_val+'"}';
+                    '", "eventOutlineVal":"'+this.Event_outline_val+
+                    '", "injuryMechanismVal":"'+this.Injury_mechanism_val+'"}';
 
       let event_manage_json = JSON.parse(event_handler);
       console.log(event_manage_json);
@@ -88,8 +87,8 @@ export class TableListComponent implements OnInit {
         val => {
             console.log("ADD NEW EVENT: POST call successful value returned in body", 
                         val);
-            document.getElementById('handle_event_div').hidden = true;
-            this.ngOnInit()
+            this.clickCancel();
+            this.ngOnInit();
         },
         response => {
             console.log("ADD NEW EVENT: POST call in error", response);
@@ -99,8 +98,5 @@ export class TableListComponent implements OnInit {
 
         }
       );
-
-
   }
-
 }
