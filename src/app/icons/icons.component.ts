@@ -10,10 +10,10 @@ import { HttpClient } from '@angular/common/http';
 
 export class IconsComponent implements OnInit {
   name: string = '';
-  civilsNum: Number=-1;
+  civilsNum: Number=1;
   eventSumVal: string = '';
-  soldiersNum: Number=-1;
-  partNum: Number=-1;
+  soldiersNum: Number=2;
+  partNum: Number= 3;
   osnVal: string = '';
   hourVal: string = '';
   dateVal: string = '';

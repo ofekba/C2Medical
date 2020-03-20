@@ -21,7 +21,8 @@ export class UpgradeComponent implements OnInit {
  routine_val: string = '';
  Event_outline_val: string = '';
  Injury_mechanism_val: string = '';
- event_id: number =-1;
+ event_id: number =35;
+ event_details: object=undefined;
  
 
  constructor(private http: HttpClient) {
@@ -29,13 +30,14 @@ export class UpgradeComponent implements OnInit {
   }
 
  ngOnInit() {
+  this.EventDetails(35);
+  // document.getElementById('event_det').hidden = true;
    this.http.get("http://localhost:3000/find/events?isOver=true").subscribe(
      val => {
          console.log("EVENT TABLE: GET call successful value returned in body", 
                      val, Object.keys(val).length);
                      for (let i = 0; i < Object.keys(val).length; i++) 
                        this.ItemsArray[i]=val[i];
-                     console.log(this.ItemsArray);
          
      },
      response => {
@@ -46,6 +48,28 @@ export class UpgradeComponent implements OnInit {
 
      }
    );
+ }
+
+ EventDetails(id:number){
+  this.http.get("http://localhost:3000/eventHandler/"+id).subscribe(
+    val => {
+        console.log("EVENT TABLE: GET call successful value returned in body", 
+                    val);
+        this.event_details=val;
+        console.log(this.event_details)
+        
+    },
+    response => {
+        console.log("EVENT TABLE: GET call in error", response);
+    },
+    () => {
+        console.log("EVENT TABLE:The GET observable is now completed.");
+        // document.getElementById('event_det').hidden = false;
+
+    }
+  );
+
+
  }
 
  

@@ -35,10 +35,11 @@ export class TableListComponent implements OnInit {
       val => {
           console.log("EVENT TABLE: GET call successful value returned in body", 
                       val, Object.keys(val).length);
-                      for (let i = 0; i < Object.keys(val).length; i++) 
+                      for (let i = 0; i < Object.keys(val).length; i++) {
                         this.ItemsArray[i]=val[i];
-                      console.log(this.ItemsArray);
-          
+                        this.ItemsArray[i].partNum=i+1;
+                      }
+
           
       },
       response => {
