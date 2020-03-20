@@ -29,6 +29,7 @@ export class TableListComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log("IN ngOnInit");
     document.getElementById('handle_event_div').hidden = true;
     this.http.get("http://localhost:3000/find/events?isOver=false").subscribe(
       val => {
@@ -37,7 +38,7 @@ export class TableListComponent implements OnInit {
                       for (let i = 0; i < Object.keys(val).length; i++) 
                         this.ItemsArray[i]=val[i];
                       console.log(this.ItemsArray);
-          document.getElementById('events_table_div').hidden = false;
+          
           
       },
       response => {
@@ -61,7 +62,7 @@ export class TableListComponent implements OnInit {
   clickCancel(){
     document.getElementById('handle_event_div').hidden = true;
     document.getElementById('events_table_div').hidden = false;
-
+    console.log("IN clickCancel");
 
   }
 
@@ -86,8 +87,8 @@ export class TableListComponent implements OnInit {
         val => {
             console.log("ADD NEW EVENT: POST call successful value returned in body", 
                         val);
-            document.getElementById('handle_event_div').hidden = true;
-            this.ngOnInit()
+            this.clickCancel();
+            this.ngOnInit();
         },
         response => {
             console.log("ADD NEW EVENT: POST call in error", response);
