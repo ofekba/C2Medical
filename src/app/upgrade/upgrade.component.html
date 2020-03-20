@@ -47,7 +47,7 @@
                             <tbody>
                                 <tr *ngFor="let item of ItemsArray">
                                     <td>
-                                      {{ item.selected_event_type }}
+                                      {{ item.selectedEventType }}
                                     </td>
                                     <td>
                                       {{ item.brigadeVal }}
@@ -74,7 +74,7 @@
                                       {{ item.eventSumVal }}
                                     </td>
                                     <td>
-                                      <button mat-raised-button type="submit" class=".btn-sm btn-danger pull-right" (click)="EventDetails(item.id)">More Details..</button>
+                                      <button mat-raised-button type="submit" class=".btn-sm btn-danger pull-right" (click)="EventDetails(item.id)">More Details</button>
                                     </td>
                                 </tr>
                             </tbody>
