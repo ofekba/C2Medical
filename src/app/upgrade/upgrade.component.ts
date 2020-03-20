@@ -29,7 +29,7 @@ export class UpgradeComponent implements OnInit {
   }
 
  ngOnInit() {
-   this.http.get(" http://localhost:3000/events?isOver=true").subscribe(
+   this.http.get("http://localhost:3000/find/events?isOver=true").subscribe(
      val => {
          console.log("EVENT TABLE: GET call successful value returned in body", 
                      val, Object.keys(val).length);
